@@ -44,7 +44,7 @@
 </head>
 
 <body>
-    <?php $page = 'registreer'; include './assets/php/header.php';?>
+    <?php $page = 'home'; include './assets/php/header.php';?>
 
     <section class="main">
         <div class="container">

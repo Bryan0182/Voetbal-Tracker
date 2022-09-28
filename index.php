@@ -46,7 +46,7 @@
     <script src="https://kit.fontawesome.com/1395c9ece5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <?php $page = 'login'; include './assets/php/header.php';?>
+    <?php $page = 'home'; include './assets/php/header.php';?>
 
     <section class="main">
         <div class="container">
