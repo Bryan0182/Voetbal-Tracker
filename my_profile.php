@@ -102,6 +102,10 @@
                                 <td><input type="text" name="team" class="input-white"
                                         value=<?php echo $fetch['team']?>></td>
                             </tr>
+                            <tr>
+                                <td><input type="hidden" name="user_ID" class="input-white"
+                                    value=<?php echo $row['user_ID']?>></td>
+                            </tr>
                         </table>
                         <div class="form-group">
                             <input type="submit" name="user_update" value="Update" class="form_update_button">
