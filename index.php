@@ -2,33 +2,6 @@
 	session_start();
 
 	require_once './assets/php/conn.php';
-
-	if(ISSET($_POST['login'])){
-		if($_POST['email'] != "" || $_POST['password'] != ""){
-			$username = $_POST['email'];
-            $password = md5($_POST['password']);
-			$sql = "SELECT * FROM `user` WHERE `email`=? AND `password`=? ";
-			$query = $conn->prepare($sql);
-			$query->execute(array($username, $password));
-			$row = $query->rowCount();
-			$fetch = $query->fetch();
-			if($row > 0) {
-				$_SESSION["email"] = $fetch["email"];
-				$_SESSION['user'] = $fetch['user_ID'];
-				header("location: ./overview.php");
-			} else{
-				echo "
-				<script>alert('Ongeldigde e-mail of wachtwoord')</script>
-				<script>window.location = './index.php'</script>
-				";
-			}
-		}else{
-			echo "
-				<script>alert('Vul alle velden in alsjeblieft')</script>
-				<script>window.location = './index.php'</script>
-			";
-		}
-	}
 ?>
 
 <!DOCTYPE html>
@@ -37,12 +10,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Inloggen | Voetbal Tracker</title>
+    <title>Home | Voetbal Tracker</title>
     <link rel="icon" type="image" href="./assets/images/soccer_ball_icon.png">
-
+    
     <script src="https://kit.fontawesome.com/1395c9ece5.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -52,43 +23,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 user_form">
-                    <h3>Inloggen Voetbal Tracker</h3>
-                    <?php if(isset($_SESSION['message'])): ?>
-                    <div class="alert alert-<?php echo $_SESSION['message']['alert'] ?> msg">
-                        <?php echo $_SESSION['message']['text'] ?>
-                    </div>
-                    <script>
-                        (function () {
-                            setTimeout(function () {
-                                document.querySelector('.msg').remove();
-                            }, 3000)
-                        })();
-                    </script>
-                    <?php 
-                        endif;
-                        // clearing the message
-                        unset($_SESSION['message']);
-                    ?>
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <input type="text" id="email" name="email" placeholder="E-mailadres" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" id="password" name="password" placeholder="Wachtwoord" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="checkbox" onclick="showPassword()">
-                            <label for="showPassword"> Laat wachtwoord zien</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="login" value="Login" class="form_button">
-                        </div>
-                    </form>
-                    <div class="row login_options">
-                        <div class="col-sm-6 offset-md-3">
-                            <p>Nog geen account? <a href="./register.php">Registreer hier!</a></p>
-                        </div>
-                    </div>
+                    <h3>Voetbal Tracker</h3>
+                    <p>Gebruiker nu de Voetbal TRacker, de website om alles van voetbal bij te houden!</p>
                 </div>
             </div>
         </div>

@@ -12,16 +12,16 @@
     $sql->execute();
     $fetch = $sql->fetch();
 
+    /* Updaten van de gebruiker */
+
     if(ISSET($_POST['user_update'])){
 		if($_POST['email'] != ""){
 			try{
                 $email = $_POST['email'];
-                $goals = $_POST['goals'];
-				$assists = $_POST['assists'];
                 $club = $_POST['club'];
                 $team = $_POST['team'];
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$sql = "UPDATE user SET email='$email', goals='$goals', assists='$assists', club='$club', team='$team' WHERE user_ID='$id'";
+				$sql = "UPDATE user SET email='$email', club='$club', team='$team' WHERE user_ID='$id'";
 				$conn->exec($sql);
 			}catch(PDOException $e){
 				echo $e->getMessage();
@@ -81,16 +81,6 @@
                                 <td style="width: 40%;">E-mailadres</td>
                                 <td><input type="text" name="email" class="input-white"
                                         value=<?php echo $fetch['email']?>></td>
-                            </tr>
-                            <tr>
-                                <td>Goals</td>
-                                <td><input type="number" min="0" name="goals" class="input-purple"
-                                        value=<?php echo $fetch['goals']?>></td>
-                            </tr>
-                            <tr>
-                                <td>Assists</td>
-                                <td><input type="number" min="0" name="assists" class="input-white"
-                                        value=<?php echo $fetch['assists']?>></td>
                             </tr>
                             <tr>
                                 <td>Club</td>

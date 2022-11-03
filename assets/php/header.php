@@ -2,7 +2,7 @@
     <div class="topnav">
         <div id="myLinks">
             <a class="<?php if($page== 'home'){echo 'mobile_active';} ?>" href="index.php">Home</a>
-            <a class="<?php if($page== 'profielen'){echo 'mobile_active';} ?>" href="profielen.php">Profielen</a>
+            <a class="<?php if($page== 'profielen'){echo 'mobile_active';} ?>" href="profiles.php">Profielen</a>
             <a class="<?php if($page== 'login'){echo 'mobile_active';} ?>" href="login.php">Login</a>
         </div>
         <a href="javascript:void(0);" class="icon" onclick="mobileMenu()">
@@ -19,7 +19,7 @@
             <ul>
                 <li><a class="<?php if($page== 'home'){echo 'active';} ?>" href="index.php"><i
                             class="fa-solid fa-house"></i> Home</a></li>
-                <li><a class="<?php if($page== 'profielen'){echo 'active';} ?>" href="profielen.php"><i
+                <li><a class="<?php if($page== 'profiles'){echo 'active';} ?>" href="profiles.php"><i
                             class="fa-solid fa-users"></i> Profielen</a></li>
             </ul>
         </div>
@@ -38,12 +38,12 @@
                             <i class="fa fa-caret-down"></i></button>
                         <div class="dropdown-content">
                             <a href="my_profile.php">Mijn profiel</a>
-                            <a href="../../php/logout.php">Uitloggen</a>
+                            <a href="./assets/php/logout.php">Uitloggen</a>
                         </div>
                     </li>
                 </div>
                     <?php else : ?>
-                    <li><a class="<?php if($page== 'login'){echo 'active';} ?>" href="<?= ('index.php') ?>"><i
+                    <li><a class="<?php if($page== 'login'){echo 'active';} ?>" href="<?= ('login.php') ?>"><i
                                 class="fa-solid fa-lock-open"></i> Login</a></li>
                     <li><a class="<?php if($page== 'registreer'){echo 'active';} ?>" href="<?= ('register.php') ?>"><i
                                 class="fa-solid fa-key"></i> Registreer</a></li>

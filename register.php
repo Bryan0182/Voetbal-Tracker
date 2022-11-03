@@ -2,6 +2,8 @@
 	session_start();
 	require_once './assets/php/conn.php';
 
+    /* Gegevens registreren in de database */
+
 	if(ISSET($_POST['register'])){
 		if($_POST['name'] != "" || $_POST['email'] != "" || $_POST['password'] != ""){
 			try{
@@ -9,7 +11,7 @@
 				$email = $_POST['email'];
 				$password = md5($_POST['password']);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$sql = "INSERT INTO `user` VALUES ('','$name', '', '', '$email', '$password')";
+				$sql = "INSERT INTO `user` VALUES ('', '$name', '', '', '', '', '$email', '$password')";
 				$conn->exec($sql);
 			}catch(PDOException $e){
 				echo $e->getMessage();
@@ -44,7 +46,7 @@
 </head>
 
 <body>
-    <?php $page = 'home'; include './assets/php/header.php';?>
+    <?php $page = 'registreer'; include './assets/php/header.php';?>
 
     <section class="main">
         <div class="container">
